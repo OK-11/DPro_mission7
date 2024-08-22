@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    #orderモデルでaccepts_nested_attributes_forを使用しているので、orderモデルのインスタンスを作成する際に、ordered_listsも作成されている
     @order = current_user.orders.build(order_params)
     @order.save
     @order.update_total_quantity
